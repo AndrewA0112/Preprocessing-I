@@ -122,10 +122,10 @@ header {
 
 	@media (max-width: 800px) {
 		padding: @main-padding-tablet;
-	}
 
-	@media (max-width: 500px) {
-		padding: @main-padding-mobile;
+		@media (max-width: 500px) {
+			padding: @main-padding-mobile;
+		}
 	}
 
 	.main-content-top {
@@ -139,15 +139,15 @@ header {
 			display: flex;
 			border-radius: 50%; // Makes img circle
 			margin: 0 auto;
-			width: 25%;
+			width: 40%;
 			border: 10px rgb(255, 255, 255) solid;
 
 				@media (max-width: 800px) {
 					width: 100%;
-				}
 
-				@media (max-width: 500px) {
-					width: 80%;
+					@media (max-width: 500px) {
+						width: 80%;
+					}
 				}
 		
 				&:hover {
