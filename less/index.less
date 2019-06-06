@@ -4,6 +4,22 @@
    License: none (public domain)
 */
 
+@header-padding: 4rem;
+@main-content-padding: 4rem;
+@main-padding: 7rem;
+@main-padding-tablet: 3rem;
+@main-padding-mobile: .5rem;
+@main-border: 1px solid lightgray;
+@footer-padding-top: 2rem;
+
+
+.bordered {
+	border: @main-border;
+	border-top: none;
+	border-bottom: none;
+}
+
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -53,7 +69,244 @@ table {
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
+html {
+	height: 100%;
+	background: white;
+	font-size: 62.5%; 
 }
+
+body {
+	width: 60%;
+	margin: 0 auto;
+	background: rgb(113, 92, 114);
+	font-size: 1.6rem;
+	font-family: Arial, Helvetica, sans-serif;
+
+		@media (max-width: 800px) {
+			width: 800px;
+
+			@media (max-width: 500px) {
+				width: 500px;
+			}
+		}
+}
+
+
+// Header && Nav Bar CSS (with nesting)
+
+header {
+	background: white;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	
+	nav {
+		display: flex;
+		justify-content: space-evenly;
+
+		a {
+			text-decoration: none;
+			font-size: 2rem; 
+			color: black;
+		
+			&:hover {
+				color: grey;
+			}
+		}
+	}
+}
+
+// Header of Main Content (Header/Img/Intro)
+
+.main-content-header{
+	padding: @main-padding;
+
+	@media (max-width: 800px) {
+		padding: @main-padding-tablet;
+
+		@media (max-width: 500px) {
+			padding: @main-padding-mobile;
+		}
+	}
+
+	.main-content-top {
+		padding-top: @main-content-padding;
+
+		@media (max-width: 800px) {
+			display: flex;
+		}
+
+		img {
+			display: flex;
+			border-radius: 50%; // Makes img circle
+			margin: 0 auto;
+			width: 40%;
+			border: 10px rgb(255, 255, 255) solid;
+
+				@media (max-width: 800px) {
+					width: 100%;
+
+					@media (max-width: 500px) {
+						width: 80%;
+					}
+				}
+		
+				&:hover {
+					border: 10px rgb(78, 57, 80) solid;
+				}
+		}
+	
+		h1 {
+			text-align: center;
+			color: white;
+			font-size: 3rem;
+			padding-top: @header-padding; // @header-padding = 2rem
+			padding-bottom: @header-padding;
+			border-bottom: 2px solid white;
+
+			@media (max-width: 800px) {
+				border-bottom: none;
+			}
+		}
+	}
+
+	// Intro CSS
+	.main-content-intro {
+		
+		margin-top: 4rem;
+		padding-top: @main-content-padding;
+		padding-bottom: @main-content-padding;
+		color: white;
+		width: 50%; 
+		border-bottom: 2px solid white;
+
+		@media (max-width: 800px) {
+			width: 100%;
+			border-bottom: none;
+
+			@media (max-width: 500px) {
+				width: 100%;
+			}
+		}
+
+		h2 {
+			font-size: 2.5rem;
+		}
+
+		p {
+			font-size: 1.8rem;
+			margin: 1rem;
+			margin-bottom: 0;
+		}
+	}
+}
+
+// Main Content (Skills/Work History)
+.main-content {
+	padding: @main-padding;
+	background: white;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	.bordered();
+
+	@media (max-width: 1500px) {
+		flex-direction: column;
+		align-items: center;
+
+		@media (max-width: 800px) {
+			flex-direction: column;
+			align-items: center;
+			padding: @main-padding-tablet
+		}
+
+			@media (max-width: 500px) {
+				padding: @main-padding-mobile;
+				flex-direction: column;
+				align-items: flex-start;
+			}
+	}
+
+	.main-content-skills {
+		width: 49%;
+
+		h1 {
+			font-size: 2.5rem; 
+		}
+
+		img {
+			padding: 1rem;
+		}
+
+	}
+
+	// Work History
+	.main-content-history {
+		width: 49%;
+
+		h1 {
+			font-size: 2.5rem;
+		}
+
+		ul {
+			padding: 2rem;
+			padding-left: 4rem;
+			list-style: square;
+
+			@media (max-width: 500px) {
+				padding-left: 2rem;
+			}
+
+			li {
+				padding: 1rem;
+				font-size: 2rem;
+
+				a {
+					text-decoration: none;
+					color: black;
+				}
+			}
+		}
+	}
+
+}
+
+// Footer (Contact Page)
+footer {
+	padding: @main-padding;
+	background: white;
+	.bordered();
+
+	@media (max-width: 800px) {
+		padding: @main-padding-tablet;
+
+		@media (max-width: 500px) {
+			padding: @main-padding-mobile;
+		}
+	}
+
+	input {
+		margin-top: @footer-padding-top;
+		
+		@media (max-width: 800px) {
+			font-size: 2rem;
+
+			@media (max-width: 500px) {
+				font-size: 3rem;
+			}
+		}
+	}
+
+	button {
+		margin-top: @footer-padding-top;
+		background: white;
+		border: none;
+		font-size: 2rem;
+
+		&:hover {
+			background: lightgray;
+		}
+	}
+
+}
+
 
